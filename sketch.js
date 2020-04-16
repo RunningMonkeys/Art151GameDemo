@@ -5,6 +5,9 @@ var swimming;
 //0-3 states of intro-swimming
 var state = 0;
 
+var typed = "";
+var hasCried = false;
+
 function preload()
 {
 	intro = loadImage('images/0-intro.jpg');
@@ -17,6 +20,9 @@ function preload()
 function setup()
 {
 	createCanvas(1024, 768);
+	textFont("Helvetica");
+	textSize(22);
+	textAlign(CENTER);
 }
 
 function draw()
@@ -37,6 +43,68 @@ function draw()
 			image(swimming, 200,0);
 			break;
 		default:
+	}
+	
+	text(typed,0,650,width,10);
+	
+}
+
+
+function keyPressed()
+{
+	if(keyCode == BACKSPACE)
+	{
+		typed = "";
+	}
+	
+}
+
+
+function keyTyped(){
+	
+	switch(key)
+	{
+		case '0':
+			state = 0;
+			break;
+		case '1':
+			state = 1;
+			break;
+		case '2':
+			state = '2';
+			break;
+		case '3':
+			state = 3;
+			break;
+		default:
+			typed += key;
+	}
+	
+	
+	if(typed == 'drink')
+	{
+		typed = "";
+		if(hasCried)
+		{
+			state = 3;
+		}
+		else{
+			state = 1;
+		}
+	}
+	else if(typed == 'eat')
+	{
+		state = 2;
+		typed = "";
+	}else if(typed == 'intro')
+	{
+		state = 0;
+		typed = "";
+	}
+	else if(typed == 'cry' && state == 2)
+	{
+		hasCried = true;
+		typed = "";
 	}
 }
 
