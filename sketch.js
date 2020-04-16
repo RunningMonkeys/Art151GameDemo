@@ -7,7 +7,10 @@ var state = 0;
 
 function preload()
 {
-	intro = loadImage('test.png');
+	intro = loadImage('image/0-intro.jpg');
+	drink = loadImage('image/1-drink.jpg');
+	large = loadImage('large/2-large.jpg');
+	swimming = loadImage('swimming/3-swimming.jpg');
 }
 
 
@@ -19,8 +22,22 @@ function setup()
 function draw()
 {
 	background(255);
-	image(intro, 200,0)
-	
+	switch(state)
+	{
+		case 0:
+			image(intro, 200,0);
+			break;
+		case 1:
+			image(drink, 200,0);
+			break;
+		case 2:
+			image(large, 200,0);
+			break;
+		case 3:
+			image(swimming, 200,0);
+			break;
+		default:
+	}
 }
 
 	
