@@ -1,12 +1,12 @@
-var intro;
-var drink;
-var large;
-var swimming;
+let intro;
+let drink;
+let large;
+let swimming;
 //0-3 states of intro-swimming
-var state = 0;
+let state = 0;
 
-var typed = "";
-var hasCried = false;
+let typed = "";
+let hasCried = false;
 
 function preload()
 {
