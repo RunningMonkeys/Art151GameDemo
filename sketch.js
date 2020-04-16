@@ -7,10 +7,10 @@ var state = 0;
 
 function preload()
 {
-	intro = loadImage('image/0-intro.jpg');
-	drink = loadImage('image/1-drink.jpg');
-	large = loadImage('large/2-large.jpg');
-	swimming = loadImage('swimming/3-swimming.jpg');
+	intro = loadImage('images/0-intro.jpg');
+	drink = loadImage('images/1-drink.jpg');
+	large = loadImage('images/2-large.jpg');
+	swimming = loadImage('images/3-swimming.jpg');
 }
 
 
