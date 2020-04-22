@@ -106,9 +106,9 @@ function draw() {
 	}
   }
 
-  text(typed, 0, 850, width, 30);
+  text(typed, 0, 750, width, 30);
 
-  text(story, 0, 800, width, 30);
+  text(story, 0, 700, width, 30);
 }
 
 function keyPressed() {
