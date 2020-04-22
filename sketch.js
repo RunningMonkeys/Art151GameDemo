@@ -1,20 +1,32 @@
-let intro;
-let drink;
-let large;
-let swimming;
+let river;
+let owl;
+let forest;
+let deer;
+let dam;
+let secretDam;
 
+
+//State 0 river
+//state 1 first forest with owl
+//state 2 empty forest
+//state 3 majestic deer
+//state 4 Built Home
+//state 5 deer happy
 let state = 0;
 let nextState = 0;
 let counter = 0;
 let typed = "";
 let story = "";
-let hasCried = false;
+let groundedTrees = 0;
+let talkedToOwl = false;
 
 function preload() {
-  intro = loadImage('assets/0-intro.jpg');
-  drink = loadImage('assets/1-drink.jpg');
-  large = loadImage('assets/2-large.jpg');
-  swimming = loadImage('assets/3-swimming.jpg');
+	river = loadImage('assets/0.jpg');
+	owl= loadImage('assets/1.jpg');
+	forest = loadImage('assets/2.jpg');
+	deer= loadImage('assets/3.png');
+	dam= loadImage('assets/4.jpg');
+	secretDam= loadImage('assets/5.jpg'); 
 }
 
 function setup() {
@@ -26,19 +38,27 @@ function setup() {
 function draw() {
   background(255);
 
-  text("ALICE FOLLOWS THE RABBIT", 0, 0, 200, 200);
-  text("COMMANDS = begin, drink, eat, cry", 0, 100, 200, 200);
+  text("BEAVER BUILDS A DAM", 0, 0, 200, 200);
+  text("COMMANDS = chop, explore, talk, begin, build", 0, 100, 200, 200);
 
   if (state == nextState) {
     if (state == 0) {
-      image(intro, 200, 0);
+      image(river, 200, 0);
     } else if (state == 1) {
-      image(drink, 200, 0);
+      image(owl, 200, 0);
     } else if (state == 2) {
-      image(large, 200, 0);
+      image(forest, 200, 0);
     } else if (state == 3) {
-      image(swimming, 200, 0);
-    }
+      image(deer, 200, 0);
+    } 
+	else if (state == 4)
+	{
+		image(dam, 200,0);
+	}
+	else if (state == 5)
+	{
+		image(secretDam, 200,0);
+	}
   } else {
     counter++;
     if (counter == 30) {
@@ -49,25 +69,41 @@ function draw() {
     let a = map(counter, 0, 30, 0, 255);
     tint(255, a);
     if (nextState == 0) {
-      image(intro, 200, 0);
+      image(river, 200, 0);
     } else if (nextState == 1) {
-      image(drink, 200, 0);
+      image(owl, 200, 0);
     } else if (nextState == 2) {
-      image(large, 200, 0);
+      image(forest, 200, 0);
     } else if (nextState == 3) {
-      image(swimming, 200, 0);
-    }
+      image(deer, 200, 0);
+    } 
+	else if (nextState == 4)
+	{
+		image(dam, 200,0);
+	}
+	else if (nextState == 5)
+	{
+		image(secretDam, 200,0);
+	}
 
     tint(255, 255 - a);
     if (state == 0) {
-      image(intro, 200, 0);
+      image(river, 200, 0);
     } else if (state == 1) {
-      image(drink, 200, 0);
+      image(owl, 200, 0);
     } else if (state == 2) {
-      image(large, 200, 0);
+      image(forest, 200, 0);
     } else if (state == 3) {
-      image(swimming, 200, 0);
-    }
+      image(deer, 200, 0);
+    } 
+	else if (state == 4)
+	{
+		image(dam, 200,0);
+	}
+	else if (state == 5)
+	{
+		image(secretDam, 200,0);
+	}
   }
 
   text(typed, 0, 650, width, 30);
@@ -82,45 +118,95 @@ function keyPressed() {
 }
 
 function keyTyped() {
-  if (key == '0') {
-    nextState = 0;
-  } else if (key == '1') {
-    nextState = 1;
-  } else if (key == '2') {
-    nextState = 2;
-  } else if (key == '3') {
-    nextState = 3;
-
-  } else if (keyCode == RETURN) {
-
-    if (typed == 'drink') {
+  if (keyCode == RETURN) 
+  {
+    if (typed == 'chop') 
+	{
       typed = '';
-
-      if (hasCried) {
-        nextState = 3;
-        story = "Alice is small, and her tears are now an ocean that threatens to sweep her away."
-      } else {
-        nextState = 1;
-        story = "Alice drinks. She starts to shrink!"
-      }
-
-    } else if (typed == 'eat') {
-      nextState = 2;
-      typed = '';
-      story = "Alice eats the biscuit, and she grows very large - too large for the room!"
-
-    } else if (typed == 'begin') {
+	  
+	  if(groundedTrees<20)
+	  {
+		  groundedTrees++;
+		  story = "Crash!! There are now "+ groundedTrees + " trees on the ground";
+	  }
+	  else
+	  {
+		  story = "I think I have enough trees to build now.";
+	  }
+    } 
+	else if (typed == 'build') 
+	{
+		typed = '';
+		if(groundedTrees<5)
+		{
+			groundedTrees = 0;
+			story = "Oh no the logs washed away!";
+		}
+		else{
+			nextState = 4;
+			story = "You have built yourself a home congrats!!"
+		}
+    } 
+	else if (typed == 'begin')
+	{
       nextState = 0;
       typed = '';
-      story = "Alice arrives at a room with a table. A bottle says DRINK ME. A biscuit says EAT ME."
+      story = "You arrive back at the stream you started at. There is a forest around a tiny stream. You can cut trees for wood or explore the forest."
 
-    } else if (typed == 'cry' && state == 2) {
-      hasCried = true;
+    } 
+	else if (typed == 'talk') 
+	{
       typed = '';
-
+	  if(state == 0)
+	  {
+		  story = "There is no one to talk to";
+	  }
+	  else if(state == 1)
+	  {
+		  story = "There is a legend that farther on in the woods there exists a magical deer that grants wishes. Says the owl";
+		  talkedToOwl = true;
+	  }
+	  else if(state == 2)
+	  {
+		  story = "There is no one here maybe that owl was lying";
+	  }
+	  else if (state == 3)
+	  {
+		  if (groundedTrees >= 10)
+		  {
+			  story = "Here is your new home!";
+			  nextState = 5;
+		  }
+		  else{
+			  story = "So the Owl told you of my location I see. If you bring me 10 trees I can build you the best home you have ever seen.";
+		  }
+	  }
     }
-
-  } else {
+	else if(typed == 'explore')
+	{
+		typed = "";
+		if(state == 0)
+		{
+			story = "You explore the forest and find an owl in the trees";
+			nextState = 1;
+		}
+		else if(state == 1 || (state == 2 && !talkedToOwl))
+		{
+			story = "You continue to explore the forest. There doesn't seem to be anything here but trees.";
+			nextState = 2;
+		}
+		else if(state == 2 && talkedToOwl)
+		{
+			nextState = 3;
+			story = "You come across a clearing in the forest and a deer standing in the middle of it."
+		}
+		else{
+			story = "I don't know where else to explore if I want to go home i should type begin";
+		}
+	}
+  }
+  else 
+  {
     typed += key;
   }
 }
