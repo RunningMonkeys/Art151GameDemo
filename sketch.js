@@ -106,9 +106,9 @@ function draw() {
 	}
   }
 
-  text(typed, 0, 650, width, 30);
+  text(typed, 0, 850, width, 30);
 
-  text(story, 0, 600, width, 30);
+  text(story, 0, 800, width, 30);
 }
 
 function keyPressed() {
@@ -151,7 +151,7 @@ function keyTyped() {
 	{
       nextState = 0;
       typed = '';
-      story = "You arrive back at the stream you started at. There is a forest around a tiny stream. You can cut trees for wood or explore the forest."
+      story = "You arrive back at the stream you started at. There is a forest around a tiny stream.\nYou can cut trees for wood or explore the forest."
 
     } 
 	else if (typed == 'talk') 
@@ -163,7 +163,7 @@ function keyTyped() {
 	  }
 	  else if(state == 1)
 	  {
-		  story = "There is a legend that farther on in the woods there exists a magical deer that grants wishes. Says the owl";
+		  story = "There is a legend that farther on in the woods there exists a magical deer that grants wishes.";
 		  talkedToOwl = true;
 	  }
 	  else if(state == 2)
