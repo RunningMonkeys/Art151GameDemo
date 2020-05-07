@@ -182,7 +182,13 @@ function keyTyped() {
 	  }
 	  else if(state == 2)
 	  {
-		  story = "There is no one here maybe that owl was lying";
+		  if(talkedToOwl)
+		  {
+			story = "There is no one here maybe that owl was lying";
+		  }
+		  else{
+			  story = "There is no one to talk to, maybe I'm lost";
+		  }
 	  }
 	  else if (state == 3)
 	  {
@@ -215,7 +221,7 @@ function keyTyped() {
 			story = "You come across a clearing in the forest and a deer standing in the middle of it."
 		}
 		else{
-			story = "I don't know where else to explore if I want to go home i should type begin";
+			story = "I don't know where else to explore if I want to go home I should type begin";
 		}
 	}
   }
