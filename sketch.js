@@ -1,3 +1,9 @@
+/*
+	Zeke Thornburgh Art 151 Creative coding
+	Non linear game & Final
+	Non linear game was basic narative and final is fixing issues with the game.
+*/
+
 let river;
 let owl;
 let forest;
