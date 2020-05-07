@@ -127,7 +127,7 @@ function draw() {
 
 function keyPressed() {
   if (keyCode == BACKSPACE) {
-    typed = '';
+    typed = typed.splice(0,-1);
   }
 }
 
