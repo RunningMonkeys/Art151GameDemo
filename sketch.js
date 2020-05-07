@@ -32,12 +32,12 @@ function preload() {
 
 function setup() {
 	createCanvas(windowWidth,windowHeight);
-	river.resize(0,windowHeight-200);
-	owl.resize(0,windowHeight-200);
-	forest.resize(0,windowHeight-200);
-	deer.resize(0,windowHeight-200);
-	dam.resize(0,windowHeight-200);
-	secretDam.resize(0,windowHeight-200);
+	river.resize(0,height-200);
+	owl.resize(0,height-200);
+	forest.resize(0,height-200);
+	deer.resize(0,height-200);
+	dam.resize(0,height-200);
+	secretDam.resize(0,height-200);
 	
 	textFont("Helvetica");
 	textSize(22);
@@ -114,9 +114,9 @@ function draw() {
 	}
   }
 
-  text(typed, 0, windowHieght-40, width, windowHieght);
+  text(typed, 0, height-40, width, hieght);
 
-  text(story, 0, windowHeight-90, width, windowHieght-41);
+  text(story, 0, height-90, width, hieght-41);
 }
 
 function keyPressed() {
