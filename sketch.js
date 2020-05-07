@@ -31,13 +31,14 @@ function preload() {
 }
 
 function setup() {
-	river.resize(0,700);
-	owl.resize(0,700);
-	forest.resize(0,700);
-	deer.resize(0,700);
-	dam.resize(0,700);
-	secretDam.resize(0,700);
-	createCanvas(1024, 768);
+	createCanvas(windowWidth,windowHeight);
+	river.resize(0,windowHeight-100);
+	owl.resize(0,windowHeight-100);
+	forest.resize(0,windowHeight-100);
+	deer.resize(0,windowHeight-100);
+	dam.resize(0,windowHeight-100);
+	secretDam.resize(0,windowHeight-100);
+	
 	textFont("Helvetica");
 	textSize(22);
 }
