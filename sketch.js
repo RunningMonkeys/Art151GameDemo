@@ -27,12 +27,19 @@ function preload() {
 	deer= loadImage('assets/3.png');
 	dam= loadImage('assets/4.jpg');
 	secretDam= loadImage('assets/5.jpg'); 
+	
 }
 
 function setup() {
-  createCanvas(1024, 768);
-  textFont("Helvetica");
-  textSize(22);
+	river.resize(0,700);
+	owl.resize(0,700);
+	forest.resize(0,700);
+	deer.resize(0,700);
+	dam.resize(0,700);
+	secretDam.resize(0,700);
+	createCanvas(1024, 768);
+	textFont("Helvetica");
+	textSize(22);
 }
 
 function draw() {
