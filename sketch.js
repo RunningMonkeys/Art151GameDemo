@@ -20,7 +20,7 @@ let secretDam;
 //state 5 deer happy
 let state = 0;
 let nextState = 0;
-String counter = 0;
+let counter = 0;
 let typed = "";
 let story = "";
 let groundedTrees = 0;
@@ -127,7 +127,7 @@ function draw() {
 
 function keyPressed() {
   if (keyCode == BACKSPACE) {
-    typed = typed.splice(0,-1);
+    typed = typed.substring(0,typed.length - 1);
   }
 }
 
