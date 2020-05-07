@@ -114,9 +114,9 @@ function draw() {
 	}
   }
 
-  text(typed, 0, windowHieght-40, width, 40);
+  text(typed, 0, windowHieght-40, width, windowHieght);
 
-  text(story, 0, windowHeight-90, width, 40);
+  text(story, 0, windowHeight-90, width, windowHieght-41);
 }
 
 function keyPressed() {
