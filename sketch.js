@@ -20,7 +20,7 @@ let secretDam;
 //state 5 deer happy
 let state = 0;
 let nextState = 0;
-let counter = 0;
+String counter = 0;
 let typed = "";
 let story = "";
 let groundedTrees = 0;
