@@ -120,9 +120,9 @@ function draw() {
 	}
   }
 
-  text(typed, 0, height-40, width, height);
+  text(typed, 0, height-100, width, height);
 
-  text(story, 0, height-90, width, height-41);
+  text(story, 0, height-200, width, height-100);
 }
 
 function keyPressed() {
